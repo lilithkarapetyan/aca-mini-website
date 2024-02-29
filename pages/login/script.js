@@ -1,18 +1,22 @@
-const password = document.getElementById("login-password");
-const show = document.getElementById("login-show");
-show.addEventListener("mousedown", function () {
-    password.setAttribute("type", "text");
-})
+function register() {
+    const username = document.getElementById("login-username").value;
+    const password = document.getElementById("login-password").value;
+    const birthDate = document.getElementById("login-birth-date").value;
+    const gender = document.querySelector("#login-gender input:checked").value;
+    const isTermsAccepted = document.getElementById("login-accept-terms").checked;
 
-show.addEventListener("mouseup", function () {
-    password.setAttribute("type", "password");
-})
-show.addEventListener("mouseleave", function () {
-    password.setAttribute("type", "password");
-})
+    if(!isTermsAccepted) {
+        return;
+    }
 
+    const userData = { username, password, birthDate, gender };
 
-document.getElementById("login-form").addEventListener("submit", function (event) {
-    event.preventDefault();
-    
-})
+    console.log(userData);
+
+    // fetch("https://myservice.com/users", {
+    //     method: "POST",
+    //     body: JSON.stringify(userData)
+    // }).then(() => {
+
+    // })
+}
